@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(version: 2021_10_14_053416) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.datetime "creat_at"
-    t.datetime "update_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
