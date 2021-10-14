@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_050739) do
+ActiveRecord::Schema.define(version: 2021_10_14_045831) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2021_10_14_050739) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+
+  create_table "cart_products", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "customer_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -36,6 +46,14 @@ ActiveRecord::Schema.define(version: 2021_10_14_050739) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "order_id"
+    t.integer "quantity"
+    t.integer "price"
+    t.integer "production_status"
+
   create_table "orders", force: :cascade do |t|
     t.string "customer_id"
     t.integer "postage"
@@ -45,9 +63,17 @@ ActiveRecord::Schema.define(version: 2021_10_14_050739) do
     t.string "shipping_post_cord"
     t.string "shipping_address"
     t.integer "status"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+
+  create_table "shippings", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "name"
+    t.string "post_cord"
+    t.string "address"
 
   create_table "products", force: :cascade do |t|
     t.integer "genre_id"
@@ -56,6 +82,7 @@ ActiveRecord::Schema.define(version: 2021_10_14_050739) do
     t.integer "price"
     t.string "image_id"
     t.boolean "is_active"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
