@@ -1,3 +1,21 @@
 // Place all the styles related to the public/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.product-box {
+  // display: flex;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.row {
+  margin-top: 20px;
+}
+
+.paginate {
+  text-align: center;
+  margin-left: 50px;
+  margin: 0 5px;
+}
