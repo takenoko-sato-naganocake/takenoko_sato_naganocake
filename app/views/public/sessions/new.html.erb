@@ -12,7 +12,7 @@
             <div class="row">
               <div class="field">
                 <%= f.label :メールアドレス, class: "mr-4 mb-5 mt-5" %>
-                <%= f.email_field :email, autofocus: true, :size =>"35x10",  autocomplete: "email" %>
+                <%= f.email_field :email, autofocus: true, :size =>"35x10",  autocomplete: "email", placeholder: "example@example.com" %>
               </div>
             </div>
           </div>
@@ -31,10 +31,12 @@
           </div>
           <% end %>
           </div>
-
+          
+          <div>
           <p>会員登録がお済みでない方</p>
           <%= link_to "こちら", new_customer_registration_path %>
           から新規登録を行ってください。
+          </div>
 
           <!--<=%= render "public/shared/links" %>-->
 
