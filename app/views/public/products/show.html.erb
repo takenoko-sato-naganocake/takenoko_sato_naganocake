@@ -1,0 +1,36 @@
+<div class="row login-row">
+	<div class="col-md-3">
+        <table class="table table-bordered genre_search_table">
+
+	        <thead>
+		        <tr class="table-head">
+			        <th class="genre_search_head">ジャンル検索</th>
+	        	</tr>
+	        </thead>
+
+	        <tbody>
+			        <tr>
+                <td class="table-body">
+						      <p>ケーキ</p>
+						      <p>焼き菓子</p>
+						      <p>プリン</p>
+						      <p>キャンディ</p>
+				        </td>
+			        </tr>
+	        </tbody>
+
+        </table>
+    </div>
+	<div class="col-xs-offset-1">
+		<div class="product-image">
+			<%= attachment_image_tag(@product, :image, fallback: "no_image.jpg",size: "300x217" ) %>
+		</div>
+	</div>
+	<div class="col-xs-5">
+		<div class="detail">
+			<h2><%= @product.name %></h2>
+			<p><%= @product.caption %></p>
+			<h3 class="product-price">￥<%= (@product.price * 1.1).to_i %><span>（税込）</span></h3>
+		</div>
+	</div>
+</div>
