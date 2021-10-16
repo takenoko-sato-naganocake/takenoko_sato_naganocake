@@ -41,7 +41,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :products, only: [:index, :show]
+    resources :products, only: [:index, :show, :create]
     resources :cart_products, except: [:new, :show, :edit] do
       collection do
         delete "destroy_all"
