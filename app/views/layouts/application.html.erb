@@ -4,76 +4,12 @@
     <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <script src="https://kit.fontawesome.com/7d6d903ecb.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-
-    <header class="pt-4">
-      <nav class="navbar navbar-expand-lg navbar-dark ">
-        <div class="container">
-          <a class="navbar-brand" href="/"><span>ながのCAKE</span></a>
-          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <%= link_to about_path, class: 'nav-link text-light  ml-2' do %>
-              About
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to products_path, class: 'nav-link text-light  ml-2' do %>
-              商品一覧
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to new_customer_registration_path, class: 'nav-link text-light  ml-2' do %>
-              新規登録
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to new_customer_session_path, class: 'nav-link text-light  ml-2' do %>
-              ログイン
-              <% end %>
-            </li>
-            </ul>
-            <form class="d-flex">
-              <input class="ml-2 form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-light ml-2" type="submit">
-                <i class="fas fa-search">Search</i>
-              </button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <main>
     <%= yield %>
-    </main>
-
-    <footer class="text-white text-center">
-      <div class="container">
-        <div class="row">
-          <div class="mx-auto">
-            <p class="pt-3" style="font-size:15px;">
-              <%= link_to "お問い合わせ", root_path,class: "text-white" %>
-              |
-              <%= link_to "ご利用案内", root_path,class: "text-white" %>
-              |
-              <%= link_to "プライバシーポリシー", root_path,class: "text-white" %>
-              |
-              <%= link_to "特定商取引法に基づく表記", root_path,class: "text-white" %>
-            </p>
-            <p style="font-size:12px;">Copyright ©naganocake All Rights Reserved.</p>
-          </div>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>

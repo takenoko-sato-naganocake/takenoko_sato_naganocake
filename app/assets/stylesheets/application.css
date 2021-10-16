@@ -13,27 +13,3 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
-
- header{
-
-  height:100px;
-  font-family: 'Noto Sans JP',serif;
-  background-color: black;
-	 background-size: cover;
-	 background-position: center;
- }
- footer{
-  height:100px;
-  font-family: 'Noto Sans JP',serif;
-  background-color: black;
-	 background-size: cover;
-	 background-position: center;
- }
-
- .login-page{
-  height: 650px;
- }
- .sign-up-page{
-  height: 800px;
- }
