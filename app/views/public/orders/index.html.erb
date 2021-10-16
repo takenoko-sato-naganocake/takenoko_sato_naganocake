@@ -1,0 +1,50 @@
+<div class="container my-5">
+
+  <div class="row">
+    <div class="offset-1 text-center">
+      <h3 class="text title-text">
+        注文履歴一覧
+      </h3>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <table class="table table-bordered table-hover">
+
+      <thead class="table-active text">
+        <tr>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>注文商品</th>
+          <th>支払金額</th>
+          <th>ステータス</th>
+          <th>注文詳細</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%# @orders.each do |order| %>
+        <tr class="light-text">
+          <td>2121/10/12<%#= order.created_at.strftime('%Y年/%m月/%d日') %></td>
+          <td>
+              〒6991233<%#= order.shipping_post_cord %><br>
+              東京都新宿区<%#= order.shipping_address %><br>
+              田中花子<%#= order.post_name %> 様
+          </td>
+          <td>
+            <%# order.product_orders.each do |f| %>
+              いちごのケーキ<%#= f.product.name %><br>
+            <%# end %>
+          </td>
+          <td>1,500円<%#= order.billing %></td>
+          <td>入金済み<%#= order.order_status %></td>
+          <td>
+            <%#= link_to "Show", "/orders/#{f.id}", class: "btn btn-success col-10" %>
+          </td>
+        </tr>
+        <%# end %>
+      </tbody>
+    </table>
+    <!--<div class="pagination"><%#= paginate @orders %></div>-->
+  </div>
+</div>
