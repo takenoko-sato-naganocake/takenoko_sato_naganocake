@@ -27,17 +27,17 @@
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to root_path, class: 'nav-link text-light  ml-2' do %>
+              <%= link_to products_path, class: 'nav-link text-light  ml-2' do %>
               商品一覧
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to root_path, class: 'nav-link text-light  ml-2' do %>
+              <%= link_to new_customer_registration_path, class: 'nav-link text-light  ml-2' do %>
               新規登録
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to root_path, class: 'nav-link text-light  ml-2' do %>
+              <%= link_to new_customer_session_path, class: 'nav-link text-light  ml-2' do %>
               ログイン
               <% end %>
             </li>
@@ -58,17 +58,17 @@
     </main>
 
     <footer class="text-white text-center">
-      <div class="container mt-5">
+      <div class="container">
         <div class="row">
           <div class="mx-auto">
             <p class="pt-3" style="font-size:15px;">
-              お問い合わせ
+              <%= link_to "お問い合わせ", root_path,class: "text-white" %>
               |
-              ご利用案内
+              <%= link_to "ご利用案内", root_path,class: "text-white" %>
               |
-              プライバシーポリシー
+              <%= link_to "プライバシーポリシー", root_path,class: "text-white" %>
               |
-              特定商取引法に基づく表記
+              <%= link_to "特定商取引法に基づく表記", root_path,class: "text-white" %>
             </p>
             <p style="font-size:12px;">Copyright ©naganocake All Rights Reserved.</p>
           </div>
