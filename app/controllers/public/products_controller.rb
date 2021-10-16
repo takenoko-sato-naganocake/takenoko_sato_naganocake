@@ -2,7 +2,7 @@ class Public::ProductsController < ApplicationController
   before_action :ensure_active_product, only: [:update]
 
   def index
-    @products = Product.page(params[:page]).per(8)
+    @products = Product.all.order(created_at: :desc).page(params[:page]).per(8)
     @products_all = Product.all
     @genres = Genre.all
     @product = Product.new
