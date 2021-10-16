@@ -2,13 +2,12 @@
   <div class="row justify-content-center">
     <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0">
 
-
       <h2>ログイン</h2>
       <p>会員の方はこちらからログイン</p>
 
 
-          <div class="text-center">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="text-center">
             <div class="row">
               <div class="field">
                 <%= f.label :メールアドレス, class: "mr-4 mb-5 mt-5" %>
@@ -26,11 +25,11 @@
 
           <div class="row mb-5">
             <div class="actions">
-              <%= f.submit "ログイン", class: "btn btn-primary btn-sm" %>
+              <%= f.submit "ログイン", class: "btn btn-sm session-btn" %>
             </div>
           </div>
-          <% end %>
           </div>
+          <% end %>
           
           <div>
           <p>会員登録がお済みでない方</p>
