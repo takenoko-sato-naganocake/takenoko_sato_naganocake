@@ -27,7 +27,7 @@ class Public::ShippingsController < ApplicationController
     def update
         @shipping = Shipping.find(params[:id])
     if
-        @shipping.update(Shipping_params)
+        @shipping.update(shipping_params)
         redirect_to shippings_path
     else
         @shippings = Shipping.all
@@ -36,7 +36,7 @@ class Public::ShippingsController < ApplicationController
     end
 
     def destroy
-        shipping = Shippings.find(params[:id])
+        shipping = Shipping.find(params[:id])
         shipping.destroy
         redirect_to shippings_path
     end
@@ -44,7 +44,7 @@ class Public::ShippingsController < ApplicationController
     private
 
     def shipping_params
-        params.require(:shipping).permit(:post_code, :address, :name)
+        params.require(:shipping).permit(:post_cord, :address, :name)
     end
 
 end

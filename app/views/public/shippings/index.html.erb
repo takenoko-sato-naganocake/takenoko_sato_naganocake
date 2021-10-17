@@ -7,45 +7,24 @@
   </div>
   
 
-  <%= form_with model: @shipping,url: shippings_path, local:true do |f| %>
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm-2">
-          <label>郵便番号(ハイフンなし)</label>
-        </div>
-        <div class="col-sm-2">
-        <%= f.text_field :post_cord, placeholder: "0000000", class:"form-control" %>
-        </div>
-      </div>
-    </div>
-    
-   <div class="form-group">
-      <div class="row">
-        <div class="col-sm-2">
-          <label>住所</label>
-        </div>
-        <div class="col-sm-4">
-         <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class:"form-control" %><br>
-        </div>
-      </div>
-   </div>
-  
-   <div class="form-group">
-      <div class="row">
-        <div class="col-sm-2">
-          <label>宛名</label>
-        </div>
-        <div class="col-sm-4">
-          <%= f.text_field :name, placeholder: "令和道子", class:"form-control" %><br>
-        </div>
-        <div class="col-sm-1"></div>
-        <div>
-          <%= f.submit '新規登録', class:'btn btn-success'  %>
-        </div>
-     </div>
-    </div>
-  <% end %>
+  <%= form_with model: @shipping, url: shippings_path, local:true do |f| %>
+    <table class="form-group">
+      <tr><th>郵便番号(ハイフンなし)</th>
+        <td><%= f.text_field :post_cord, placeholder: "0000000", class:"form-control" %></td>
+      </tr>
 
+      <tr><th>住所</th>
+        <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class:"form-control" %></td>
+      </tr>
+  
+      <tr><th>宛名</th>
+      　<td><%= f.text_field :name, placeholder: "令和道子", class:"form-control" %>
+      　<%= f.submit '新規登録', class:'btn btn-success'  %></td>
+      </tr>
+     <% end %>
+    </table>
+    
+    
 <div class="row">
 <table class="table table-striped">
   <thead>
@@ -59,11 +38,11 @@
   </thead>
   <% @shippings.each do |s| %>
   <tbody>
-    <td><%= s.post_code %></td>
+    <td><%= s.post_cord %></td>
     <td><%= s.address %></td>
     <td><%= s.name %></td>
-    <td><%= link_to "編集する" , edit_shippings_path(s) %></td>
-    <td><%= link_to "削除する", "/public/shippings/#{s.id}", method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+    <td><%= link_to "編集する" , "/shippings/#{s.id}/edit", class:"btn btn-success btn-sm" %>
+    <%= link_to "削除する", "/shippings/#{s.id}", method: :delete, class:"btn btn-danger btn-sm","data-confirm" => "本当に消しますか?" %></td>
   </tbody>
   <% end %>
 </table>
