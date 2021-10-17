@@ -34,7 +34,7 @@
 			<h2 class="product-name"><%= @product.name %></h2>
 			<p class="product-caption"><%= @product.caption %></p>
 			<h3 class="product-price">￥<%= (@product.price * 1.1).to_i %><span class="tax">（税込）</span></h3>
-			<% if @product.is_active == true %>
+			<% if @product.is_active != true %>
 				<p class="soldout"> Sold out </p>
 			<% end %>
 		</div>
