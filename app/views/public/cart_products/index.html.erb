@@ -5,7 +5,7 @@
       　<!--もしカートに自分の淹れた商品が存在したら-->
         <% if @customer_cart_products.exists? %>
           <div>
-            <%= link_to "カートを空にする", destroy_all_cart_products, method: :delete, class: "btn btn-danger" %>
+            <%= link_to "カートを空にする", destroy_all_cart_products_path, method: :delete, class: "btn btn-danger" %>
           </div>
           <!--カート内の商品一覧-->
           <table class="table">
@@ -19,14 +19,14 @@
               </tr>
             </thead>
             <tbody>
-              <!--合計金額の初期値を設定-->
+              <!--合計金額の初期値を設定これに繰り返し金額を代入していく-->
               <% @sum = 0 %>
               <!--自分のカートない商品を一覧表示-->
               <% @customer_cart_products.each do |cart| %>
               <tr>
                 <td>
-                  <% link_to product_path(cart.product.id) do %>
-                    <%= attachment_image_tag cart.product , :image, fill,50,50 ,fallback: "no_image.jpg",size: "50x50" %>
+                  <%= link_to product_path(cart.product) do %>
+                    <%= attachment_image_tag cart.product , :image, :fill,50,50 ,fallback: "no_image.jpg",size: "50x50" %>
                     <%= cart.product.name %>
                   <% end %>
                 </td>
@@ -35,25 +35,25 @@
                   ¥<%= @product_price.floor.to_s(:delimited) %>
                 </td>
                 <td>
-                  <%= form_with model: cart, url: cart_product_path(cart), method: :patch, local: true do %>
+                  <%= form_with model: cart, url: cart_product_path(cart), method: :patch, local: true do |f| %>
                     <!--個数を選択-->
                     <%= f.select :quantity,[[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]],{inclued_blank: "個数選択"} %>
                     <!--カートの主キーを送る-->
                     <%= f.hidden_field :id, :value => cart %>
                     <!--自分のIDを送る-->
-                    <%= f.hidden_field :customer_id, :value => costomer_id.id %>
+                    <%= f.hidden_field :customer_id, :value => current_customer.id %>
                     <%= f.submit "更新", class: "btn btn-success" %>
                   <% end %>
                 </td>
                 <td>
                   <!--金額掛ける個数で計算する-->
-                  <% @total = product_price * cart.quantity.to_i %>
+                  <% @total = @product_price * cart.quantity.to_i %>
                   ¥<%= @total.floor.to_s(:delimited) %>
                 </td>
                   <!--金額が計算されたら、設定した初期値に金額を足していく-->
                   <% @sum += @total %>
                 <td>
-                  <%= link_to "削除する", cart_product(cart), method: :delete, class: "btn btn-danger" %>
+                  <%= link_to "削除する", cart_product_path(cart), method: :delete, class: "btn btn-danger" %>
                 </td>
               </tr>
               <% end %>
@@ -67,11 +67,11 @@
               <td><%= @sum.floor.to_s(:delimited) %></td>
             </tbody>
           </table>
-          
+
           <div>
             <%= link_to "買い物を続ける", products_path, class: "btn btn-primary" %>
           </div>
-          
+
           <div>
             <%= link_to "情報入力画面に進む", new_order_path , class: "btn btn-success"%>
           </div>
