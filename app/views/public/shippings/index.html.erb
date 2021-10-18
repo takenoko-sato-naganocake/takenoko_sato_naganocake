@@ -1,3 +1,14 @@
+<%= flash[:notice] %>
+
+  <% if @shipping.errors.any? %>
+  <%= @shipping.errors.count %>errors prohibited this obj from being saved:
+  <% @shipping.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+
+
 <div class="container">
   <div class="row"> 
   　  <div class="col-sm-1"></div>
@@ -42,7 +53,7 @@
     <td><%= s.address %></td>
     <td><%= s.name %></td>
     <td><%= link_to "編集する" , "/shippings/#{s.id}/edit", class:"btn btn-success btn-sm" %>
-    <%= link_to "削除する", "/shippings/#{s.id}", method: :delete, class:"btn btn-danger btn-sm","data-confirm" => "本当に消しますか?" %></td>
+    <%= link_to "削除する", "/shippings/#{s.id}", method: :delete, class:"btn btn-danger btn-sm","data-confirm" => "本当に削除しますか?" %></td>
   </tbody>
   <% end %>
 </table>

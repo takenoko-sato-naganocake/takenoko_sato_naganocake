@@ -4,26 +4,28 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
   end
   
-  def edit
-    @customer = current_customer
-  end
+  # def edit
+  #   @customer = current_customer
+  # end
   
-  def update
-    @customer = current_customer
-    if
-    @customer.update(customer_params)
-    redirect_to public_customers_path
-    else
-    render :edit
-    end
-  end
+  # def update
+  #   @customer = current_customer
+  #   if
+  #   @customer.update(customer_params)
+  #   flash[:notice] = "登録情報を更新しました"
+  #   redirect_to public_customers_path
+  #   else
+  #   render :edit
+  #   end
+  # end
   
   def unsubcribe
     @customer = current_customer
   end
   
   def withdraw
-   current_customer.update(is_deleted: false)
+   @customer = current_customer
+   @current_customer.update(is_deleted: true)
    reset_session
    redirect_to root_path
   end
