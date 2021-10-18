@@ -11,4 +11,3 @@ Admin.create!(
   email: "aaa@gmail.com",
   password: "111111"
   )
-
