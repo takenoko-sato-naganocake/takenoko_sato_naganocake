@@ -1,0 +1,43 @@
+<div class="admin-products">
+      <h2>商品一覧</h2><br>
+
+
+  <div class="new-product text-right">
+      <%= link_to "新規登録", new_admin_product_path, class:"btn btn-lg" %>
+  </div>
+
+    <div class="row mt-5">
+      <!-- ofsetは左右の余白 -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th colspan="1"></th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @products.each do |product| %>
+            <tr>
+              <td><%= product.id %></td>
+              <td><%= link_to product.name ,admin_product_path(product.id) %></td>
+              <td><%= product.price %></td>
+              <td><%= product.genre_id %></td>
+              <td></td>
+              <td><% if product.is_active == true %>
+                    販売中
+                  <% else %>
+                    販売停止中
+                  <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= paginate @products %>
+    </div>
