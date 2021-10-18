@@ -1,0 +1,56 @@
+<% flash.each do |key, value| %>
+  <%= content_tag(:p, value, class: key) %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+        <h4 class="admin_customer"><%= @customer.last_name %>　<%= @customer.first_name %>　様の会員詳細</h4>
+    </div>
+  
+  <div class="row">
+    <div class="offset-md-1 col-md-10 offset-md-1">
+      <table class="admin_customer_info">
+        <tr>
+          <th>会員ID</th>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <th>氏名</th>
+          <td><%= @customer.last_name %>　<%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <th>カナ</th>
+          <td><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <th>郵便番号</th>
+          <td><%= @customer.post_cord %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @customer.phone_number %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+         <th>会員ステータス</th>
+         <% if @customer.is_deleted == true %>
+         <td><p class="text-secondary">退会</p></td>
+         <% else %>
+         <td><p class="text-success">有効</p></td>
+         <% end %>
+        </tr>
+          <th></th>
+          <td><%= link_to "編集する", "/admin/customers/#{@customer.id}/edit", class:"btn btn-secondary btn-sm" %>
+          <%= link_to "注文履歴一覧を見る", "/admin/orders/#{@customer.id}", class:"btn btn-sm btn-dark" %></td>
+         </tr>
+      </table>
+    </div>
+  </div>
+</div>
