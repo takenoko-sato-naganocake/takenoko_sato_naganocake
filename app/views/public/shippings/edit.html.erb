@@ -1,3 +1,10 @@
+  <% if @shipping.errors.any? %>
+  <%= @shipping.errors.count %>errors prohibited this obj from being saved:
+  <% @shipping.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
 
       <h4>配送先編集</h4>
 
@@ -6,7 +13,7 @@
 
           <label>郵便番号(ハイフンなし)</label>
         <div>
-          <%= f.text_field :post_cod %>
+          <%= f.text_field :post_cord %>
         </div>
    
 
