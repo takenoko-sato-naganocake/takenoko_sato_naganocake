@@ -13,7 +13,7 @@ class Public::CartProductsController < ApplicationController
 
   def update
     @cart_product = CartProduct.find(params[:id])
-    @cart_product = CartProduct.update(cart_product_params)
+    @cart_product.update(cart_product_params)
     redirect_to cart_products_path
   end
 
