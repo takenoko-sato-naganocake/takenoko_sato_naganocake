@@ -1,3 +1,32 @@
 // Place all the styles related to the admin/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+form dl dt{
+  width: 160px;
+  padding:10px 0;
+  float:left;
+  clear:both;
+}
+
+form dl dd{
+  padding:10px 0;
+}
+
+#product_caption {
+ height: 100px;
+}
+
+.form-success {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.admin-products {
+  width: 1000px;
+  max-width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}

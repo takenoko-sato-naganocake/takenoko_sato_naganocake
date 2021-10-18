@@ -5,7 +5,6 @@ class Public::ProductsController < ApplicationController
     @products = Product.all.order(created_at: :desc).page(params[:page]).per(8)
     @products_all = Product.all
     @genres = Genre.all
-    @product = Product.new
   end
 
   def show
@@ -13,13 +12,6 @@ class Public::ProductsController < ApplicationController
     @cart_products = CartProduct.new
   end
 
-# 仮ーーーーーーーーーーー
-  def create
-    @product = Product.new(product_params)
-    @product.save
-    redirect_back(fallback_location: root_path)
-  end
-# ーーーーーーーーーーーーーーーーーーーーーー
 
   private
 
