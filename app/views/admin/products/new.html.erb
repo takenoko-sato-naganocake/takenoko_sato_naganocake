@@ -1,54 +1,53 @@
-<div class="col-sm-15 col-md-8 col-lg-5 px-sm-0 offset-1">
-
-  <div class="mt-5">
-
+<div class="container mt-5 mb-5">
     <h2>新規商品登録</h2>
-        <% if @product.errors.any? %>
-      <%= @product.errors.count %>errors prohibited this obj from being saved:
-      <% @product.errors.full_messages.each do |message| %>
-        <%= message %>
+
+    <div class="product-new">
+      <% if @product.errors.any? %>
+        <%= @product.errors.count %>errors prohibited this obj from being saved:
+        <% @product.errors.full_messages.each do |message| %><br>
+          ・<%= message %>
+        <% end %>
       <% end %>
-    <% end %>
 
-  </div>
 
-  <%= form_for(@product, url: admin_products_path) do |f| %>
-  <dl>
+      <%= form_for(@product, url: admin_products_path) do |f| %>
+        <dl>
 
-    <div class="form-group">
-      <dt>商品画像</dt>
-      <dd><%= f.attachment_field :image %></dd>
-    </div>
-    <div class="form-group">
-      <dt>商品名</dt>
-      <dd><%= f.text_field :name %></dd>
-    </div>
-    <div class="form-group">
-      <dt>商品説明</dt>
-      <dd><%= f.text_area :caption %></dd>
-    </div>
-    <div class="form-group">
-      <dt>ジャンル</dt>
-      <dd><%= f.text_field :genre_id %></dd>
-    </div>
-    <div class="form-group">
-      <dt>税抜価格</dt>
-      <dd><%= f.text_field :price %></dd>
-    </div>
-    <div class="field">
-      <dt>販売ステータス</dt>
-      <dd>
-        <%= f.radio_button :is_active, true %>
-        <%= f.label :is_active, "販売中" %>
-        <%= f.radio_button :is_active, false %>
-        <%= f.label :is_active, "売切れ" %>
-      </dd>
-    </div>
-  </dl>
-    <div class="form-success">
-      <%= f.submit "新規登録" %>
-    </div>
+          <div class="form-group">
+            <dt>商品画像</dt>
+            <dd><%= f.attachment_field :image %></dd>
+          </div>
+          <div class="form-group">
+            <dt>商品名</dt>
+            <dd><%= f.text_field :name %></dd>
+          </div>
+          <div class="form-group">
+            <dt>商品説明</dt>
+            <dd><%= f.text_area :caption %></dd>
+          </div>
+          <div class="form-group">
+            <dt>ジャンル</dt>
+            <dd><%= f.text_field :genre_id %></dd>
+          </div>
+          <div class="form-group">
+            <dt>税抜価格</dt>
+            <dd><%= f.text_field :price %></dd>
+          </div>
+          <div class="field">
+            <dt>販売ステータス</dt>
+            <dd>
+              <%= f.radio_button :is_active, true %>
+              <%= f.label :is_active, "販売中" %>
+              <%= f.radio_button :is_active, false %>
+              <%= f.label :is_active, "売切れ" %>
+            </dd>
+          </div>
+        </dl>
+        <div class="form-success">
+          <%= f.submit "新規登録", class:"btn btn-sm btn-dark" %>
+        </div>
 
-  <% end %>
+      <% end %>
 
+    </div>
 </div>
