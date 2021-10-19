@@ -21,7 +21,7 @@ class Admin::GenresController <  ApplicationController
 
   def update
     @genre = Genre.find(params[:id])
-    if @genre.update(params[:id])
+    if @genre.update(genre_params)
       redirect_to admin_genres_path
       flash[:notice] = "Genre information has been updated."
     else

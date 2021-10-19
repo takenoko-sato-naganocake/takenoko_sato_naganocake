@@ -1,5 +1,6 @@
 <!--top.bottomに余白-->
 <div class="container mt-5 mb-5">
+
   <h2>商品一覧</h2>
 
   <div class="text-right">
@@ -7,6 +8,7 @@
   </div>
 
   <div class="row">
+
     <table class="table">
       <thead>
         <tr>
@@ -25,7 +27,7 @@
             <td><%= product.id %></td>
             <td><%= link_to product.name ,admin_product_path(product.id) %></td>
             <td><%= product.price %></td>
-            <td><%= product.genre_id %></td>
+            <td><%= product.genre.name %></td>
             <td></td>
             <td>
               <% if product.is_active == true %>
@@ -38,6 +40,9 @@
         <% end %>
       </tbody>
     </table>
+
   </div>
+
   <%= paginate @products %>
+
 </div>

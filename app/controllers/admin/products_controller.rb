@@ -18,7 +18,7 @@ class Admin::ProductsController < ApplicationController
       redirect_to admin_product_path(@product.id)
       flash[:notice] = "Product information has been created."
     else
-      render "new"
+      render :new
     end
   end
 

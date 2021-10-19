@@ -1,7 +1,10 @@
 class Product < ApplicationRecord
+
   attachment :image
 
+  belongs_to :genre
   has_many :cart_products, dependent: :destroy
+  has_many :order_details
 
   validates :image, presence: true
   validates :name, presence: true
