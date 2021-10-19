@@ -1,8 +1,7 @@
 <div class="container" style="font-family: 'Noto Sans JP',serif;">
-
   <div class='row pb-5 pt-2'>
 
-    <div class="col-3 text-center">
+    <div class="col-md-2 text-center">
       <div class="card">
         <div class="card-header">
           ジャンル検索
@@ -24,12 +23,11 @@
       </div>
     </div>
 
-    <div class="col-9">
+    <div class="col-md-10">
       <h2><%= "商品一覧 （全#{@products_all.count}件）" %></h2>
 
         <div class="product-box">
             <% @products.each do |product| %>
-        <!--<div class="col-lg-3 col-md-6 mb-4">-->
                 <div class="col-lg-3 col-md-3 mb-3">
                     <%= link_to product_path(product.id), style: "color: black;", data: {"turbolinks" => false} do %>
                         <%= attachment_image_tag(product, :image, class: 'index-image', fallback: "no_image.jpg") %><br>
@@ -39,8 +37,10 @@
                 </div>
             <% end %>
         </div>
+
         <%= paginate @products %>
 
     </div>
+
   </div>
 </div>
