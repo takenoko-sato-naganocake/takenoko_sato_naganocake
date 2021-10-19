@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <h4>注文履歴一覧</h4>
+  </div>
+
+  <div class="row">
+      <div class="offset-md-1 col-md-10 offset-md-1">
+
+    <table class="table">
+      <thead>
+        <tr>
+        <th scope="col">購入日時</th>
+        <th scope="col">購入者</th>
+        <th scope="col">注文個数</th>
+        <th scope="col">注文ステータス</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+        <td><%= link_to "/admin/orders/#{order.id}" do %>
+            <%= order.created_at.strftime('%Y/%m/%d') %>
+            <% end %></td>
+        <td><%= order.customer.last_name %><%= order.customer.first_name %>
+        </td>
+        <td><%= order.quantity %></td>
+            <% if order.status == 0 %>
+            <td>入金待ち</td>
+            <% elsif order.status == 1 %>
+            <td>入金確認</td>
+            <% elsif order.status == 2 %>
+            <td>製作中</td>
+            <% elsif order.status == 3 %>
+            <td>発送準備中</td>
+            <% elsif order.status == 4 %>
+            <td>発送済み</td>
+            <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  
+    <%= paginate @orders %>
+    </div>
+  </div>
+</div>
