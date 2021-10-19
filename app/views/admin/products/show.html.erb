@@ -1,23 +1,49 @@
-<div class="admin-products">
-  <div class="admin-product-cont">
-
-<div class="col-md-4">
-		<div class="product-image">
-			<%= attachment_image_tag(@product, :image, fallback: "no_image.jpg",size: "300x217" ) %>
-		</div>
-	</div>
-
-	<div class="col-md-5">
-
-		<div class="detail">
-			<h2 class="product-name"><%= @product.name %></h2>
-			<p class="product-caption"><%= @product.caption %></p>
-			<h3 class="product-price">￥<%= (@product.price * 1.1).to_i %><span class="tax">（税込）</span></h3>
-			<% if @product.is_active != true %>
-				<p class="soldout"> soldout </p>
-			<% end %>
-		</div>
-
-	</div>
+<div class="flash">
+	<%= flash[:notice] %>
 </div>
+
+<div class="container mt-5 mb-5">
+	<h2>商品詳細</h2>
+  	<div class="row">
+
+			<div class="col-md-6">
+				<div class="text-right">
+					<%= attachment_image_tag(@product, :image, fallback: "no_image.jpg",size: "300x217" ) %>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<dl>
+		    		<div class="form-group">
+		      			<dt>商品名</dt>
+		      			<dd><%= @product.name %></dd>
+		    		</div>
+				    <div class="form-group">
+					      <dt>商品説明</dt>
+					      <dd><%= @product.caption %></dd>
+				    </div>
+				    <div class="form-group">
+					      <dt>ジャンル</dt>
+					      <dd><%= @product.genre.name %></dd>
+				    </div>
+				    <div class="form-group">
+					      <dt>税込価格<br>(税抜価格)</dt>
+					      <dd><%= (@product.price * 1.1).to_i %> (<%= @product.price %>) 円</dd>
+				    </div>
+				    <div class="form-group">
+					      <dt>販売ステータス</dt>
+					      <dd><% if @product.is_active == true %>
+		                <p class="text-success mt-2">販売中</p>
+		              <% else %>
+		                <p class="text-secondary mt-2">販売停止中</p>
+		              <% end %></dd>
+				    </div>
+
+				</dl>
+				<div class="btn-edit">
+					<%= link_to "編集する", edit_admin_product_path(@product.id), class:"btn btn-secondary btn-sm" %>
+				</div>
+			</div>
+
+		</div>
 </div>

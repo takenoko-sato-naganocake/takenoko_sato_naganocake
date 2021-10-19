@@ -1,0 +1,13 @@
+<div class="container mt-5 mb-5">
+  <h2>ジャンル編集</h2><br>
+
+  <%= form_for(@genre, url: admin_genre_path) do |f| %>
+    <div class="form-group col-md-10">
+
+      <%= f.label :ジャンル名 %>
+      <%= f.text_field :name,class: "col-md-2" %>
+      <%= f.submit "変更を保存" ,class: "btn btn-sm btn-dark" %>
+    </div>
+  <% end %>
+
+</div>
