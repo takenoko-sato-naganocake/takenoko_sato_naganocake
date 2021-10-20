@@ -38,7 +38,7 @@
             <% end %>
           </td>
           <td>¥<%= order.billing %></td>
-          <td><%= order.status %></td>
+          <td><%= order.status_i18n  %></td>
           <td>
             <%= link_to "詳細", order_path(order.id), class: "btn", style: "background-color: #cbb05e; color: black;" %>
           </td>
