@@ -1,9 +1,12 @@
-<div class="container">
+<div class="container" style="margin-bottom: 250px;">
   <div class="row">
     <div class="col">
-      
+
       <h2>注文情報確認</h2>
       <% @sum = 0 %>
+
+      <div class="row mt-3">
+      <div class="col-8">
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -18,12 +21,12 @@
           <tr>
             <td>
               <%= link_to product_path(cart_product) do %>
-                <%= attachment_image_tag cart_product , :image, :fill,50,50 ,fallback: "no_image.jpg",size: "50x50" %>
-                <%= cart_product.name %>
+                <%= attachment_image_tag cart_product.product , :image, :fill,50,50 ,fallback: "no_image.jpg",size: "50x50" %>
+                <%= cart_product.product.name %>
               <% end %>
             </td>
             <td>
-              <% @product_price = cart_product.price * 1.1 %>
+              <% @product_price = cart_product.product.price * 1.1 %>
               ¥<%= @product_price.floor.to_s(:delimited) %>
             </td>
             <td>
@@ -38,7 +41,9 @@
           <% end %>
         </tbody>
       </table>
-      
+      </div>
+
+      <div class="col-4">
       <table class="table table-bordered">
         <tbody>
           <tr>
@@ -55,36 +60,44 @@
           </tr>
         </tbody>
       </table>
-      
+      </div>
+      </div>
+
       <div class="row">
-        <h3>支払い方法</h3>
-        <%= @order.payment %>
+        <h3 class="mr-3">支払い方法</h3>
+        <p style="font-size: 20px;"><%= @order.payment %></p>
       </div>
       <div class="row">
-        <h3>お届け先</h3>
-        〒<%= @shipping_post_cord %>　<%= @shipping_address %>　<%= @shipping_name %>
+        <h3 class="mr-3">お届け先</h3>
+        〒<p style="font-size: 20px;"><%= @shipping_post_cord %></p>　<p style="font-size: 20px;"><%= @shipping_address %></p>　<p style="font-size: 20px;"><%= @shipping_name %></p>
       </div>
-      
+
       <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+        <%= f.hidden_field :payment, value: @order.payment %>
         <%= f.hidden_field :customer_id, value: current_customer.id %>
         <%= f.hidden_field :postage, value: 800 %>
         <%= f.hidden_field :billing, value: @billing %>
-        <% if params[:delivery_address] == "0" %>
-          <%= f.hidden_field :shipping_name, value: current_customer.name %>
-          <%= f.hidden_field :shipping_address, value: current_customer.address %>
-          <%= f.hidden_field :shipping_post_cord, value: current_customer.post_cord %>
-        <% elsif params[:delivery_address] == "1" %>
-          <%= f.hidden_field :shipping_name, value: @customer_address.name %>
-          <%= f.hidden_field :shipping_name, value: @current_customer.address %>
-          <%= f.hidden_field :shipping_name, value: @current_customer.post_cord %>
-        <% elsif params[:delivery_address] == "2" %>
-          <%= f.hidden_field :shipping_name, value: @order.name %>
-          <%= f.hidden_field :shipping_name, value: @order.address %>
-          <%= f.hidden_field :shipping_name, value: @order.post_cord %>
-        <% end %>
-      <%= submit "注文を確定する" class: "btn" style: "background-color: #cbb05e; color: black;" %>
+        <%= f.hidden_field :shipping_name, value: @shipping_name %>
+        <%= f.hidden_field :shipping_address, value: @shipping_address %>
+        <%= f.hidden_field :shipping_post_cord, value: @shipping_post_cord %>
+        <!--<=% if params[:order][:delivery_address] == "0" %>-->
+        <!--  <=%= f.hidden_field :shipping_name, value: current_customer.last_name + current_customer.first_name %>-->
+        <!--  <=%= f.hidden_field :shipping_address, value: current_customer.address %>-->
+        <!--  <=%= f.hidden_field :shipping_post_cord, value: current_customer.post_cord %>-->
+        <!--<=% elsif params[:order][:delivery_address] == "1" %>-->
+        <!--  <=%= f.hidden_field :shipping_name, value: @customer_address.pluck(:name) %>-->
+        <!--  <=%= f.hidden_field :shipping_address, value: @customer_address.pluck(:address) %>-->
+        <!--  <=%= f.hidden_field :shipping_post_cord, value: @customer_address.pluck(:post_cord) %>-->
+        <!--<=% elsif params[:order][:delivery_address] == "2" %>-->
+        <!--  <=%= f.hidden_field :shipping_name, value: @order.shipping_name %>-->
+        <!--  <=%= f.hidden_field :shipping_address, value: @order.shipping_address %>-->
+        <!--  <=%= f.hidden_field :shipping_post_cord, value: @order.shipping_post_cord %>-->
+        <!--<=% end %>-->
+        <div class="text-center mt-5">
+        <%= f.submit "注文を確定する", class: "btn" ,style: "background-color: #cbb05e; color: black;" %>
+        </div>
       <% end %>
-      
+
     </div>
   </div>
 </div>
