@@ -7,7 +7,7 @@ class Customer < ApplicationRecord
   has_many :shippings, dependent: :destroy
   has_many :cart_products, dependent: :destroy
 
-  has_many :order, dependent: :destroy
+  has_many :orders, dependent: :destroy
   
 
   validates :last_name, presence: true
