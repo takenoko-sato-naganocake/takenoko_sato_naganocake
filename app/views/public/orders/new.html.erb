@@ -26,7 +26,7 @@
         <div>
         <%= f.radio_button :delivery_address, 1 %>
         <%= f.label :delivery_address, "登録済住所から選択", value: 1 %>
-        <%= f.collection_select :address_id, @shippings, :id, :address, :prompt => "選択してください" %>
+        <%= f.collection_select :shipping_id, @shippings, :id, :view_address , :prompt => "選択してください" %>
         </div>
 
         <div>
