@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container my-5" style="height: 650px;">
 
   <div class="row">
     <div class="offset-1 text-center">
@@ -8,6 +8,7 @@
     </div>
   </div>
 
+<% if @orders.exists? %>
   <div class="row mt-5">
     <table class="table table-bordered table-hover">
 
@@ -23,28 +24,36 @@
       </thead>
 
       <tbody>
-        <%# @orders.each do |order| %>
+        <% @orders.each do |order| %>
         <tr class="light-text">
-          <td>2121/10/12<%#= order.created_at.strftime('%Y年/%m月/%d日') %></td>
+          <td><%= order.created_at.strftime('%Y年%m月%d日') %></td>
           <td>
-              〒6991233<%#= order.shipping_post_cord %><br>
-              東京都新宿区<%#= order.shipping_address %><br>
-              田中花子<%#= order.post_name %> 様
+              〒<%= order.shipping_post_cord %><br>
+              <%= order.shipping_address %><br>
+              <%= order.shipping_name %> 様
           </td>
           <td>
-            <%# order.product_orders.each do |f| %>
-              いちごのケーキ<%#= f.product.name %><br>
-            <%# end %>
+            <% order.order_details.each do |f| %>
+              <%= f.product.name %><br>
+            <% end %>
           </td>
-          <td>1,500円<%#= order.billing %></td>
-          <td>入金済み<%#= order.order_status %></td>
+          <td>¥<%= order.billing %></td>
+          <td><%= order.status_i18n  %></td>
           <td>
-            <%#= link_to "Show", "/orders/#{f.id}", class: "btn btn-success col-10" %>
+            <%= link_to "詳細", order_path(order.id), class: "btn", style: "background-color: #cbb05e; color: black;" %>
           </td>
         </tr>
-        <%# end %>
+        <% end %>
       </tbody>
     </table>
-    <!--<div class="pagination"><%#= paginate @orders %></div>-->
+    <div class="pagination"><%= paginate @orders %></div>
   </div>
+
+
+
+  <% else %>
+      <div class="text-center">
+        <h2>※注文履歴がありません</h2>
+      </div>
+  <% end %>
 </div>
