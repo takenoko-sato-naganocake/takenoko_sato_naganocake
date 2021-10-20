@@ -6,6 +6,13 @@
 
   <h2>ジャンル追加・一覧</h2><br>
 
+  <% if @genre.errors.any? %>
+        <%= @genre.errors.count %>errors prohibited this obj from being saved:
+        <% @genre.errors.full_messages.each do |message| %><br>
+          ・<%= message %>
+        <% end %>
+      <% end %>
+
   <%= form_for(@genre, url: admin_genres_path) do |f| %>
     <div class="form-genre">
       <%= f.label :ジャンル名 %>

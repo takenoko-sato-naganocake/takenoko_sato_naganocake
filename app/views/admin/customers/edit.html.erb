@@ -1,7 +1,7 @@
 <% if @customer.errors.any? %>
   <%= @customer.errors.count %>errors prohibited this obj from being saved:
-    <% @customer.errors.full_messages.each do |message| %>
-      <%= message %>
+    <% @customer.errors.full_messages.each do |message| %><br>
+      ・<%= message %>
     <% end %>
   <% end %>
 
@@ -9,13 +9,13 @@
     <div class="row">
         <h4><%= @customer.last_name%>　<%= @customer.first_name %>　様の会員情報編集</h4>
     </div>
-    
-        
+
+
     <div class="row">
         <div class="offset-md-1 col-md-10 offset-md-1">
-                
+
         <%= form_with model:@customer, url: "/admin/customers/#{@customer.id}", local:true do |f| %>
-        
+
         <table class="admin_customer_edit">
             <tr>
               <th>会員ID</th>
@@ -35,7 +35,7 @@
             </tr>
             <tr>
               <th>郵便番号</th>
-              <td><%= f.text_field :post_cord %></td>  
+              <td><%= f.text_field :post_cord %></td>
             </tr>
             <tr>
               <th>住所</th>
@@ -65,5 +65,4 @@
     </div>
 </div>
 
-            　　
-             
+

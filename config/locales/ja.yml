@@ -6,9 +6,6 @@
           waiting_production: "製作待ち"
           in_production: "製作中"
           production_complete: "製作完了"
-
-  ja:
-    enums:
       order:
         status:
           waiting_payment: "入金待ち"
@@ -17,12 +14,9 @@
           ready_to_ship: "発送準備中"
           shipped: "発送済み"
 
-  ja:
     activerecord:
       errors:
-        models:
-          product:
-            attributes:
+          messages:
               image: "商品画像"
               name: "商品名"
               caption: "商品説明"
