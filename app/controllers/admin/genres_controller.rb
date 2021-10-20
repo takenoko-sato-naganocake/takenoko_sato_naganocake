@@ -11,6 +11,7 @@ class Admin::GenresController <  ApplicationController
       redirect_to admin_genres_path
       flash[:notice] = "Genre information has been created."
     else
+      @genres = Genre.all
       render :index
     end
   end

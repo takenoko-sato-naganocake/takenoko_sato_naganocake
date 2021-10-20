@@ -13,3 +13,12 @@
           in_production: "製作中"
           ready_to_ship: "発送準備中"
           shipped: "発送済み"
+
+    activerecord:
+      errors:
+          messages:
+              image: "商品画像"
+              name: "商品名"
+              caption: "商品説明"
+              price: "税抜価格"
+              blank: "が入力されていません。"
