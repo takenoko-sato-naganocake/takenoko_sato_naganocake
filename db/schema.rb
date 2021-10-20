@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_10_14_083255) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "last_name"Admin::OrdersController
+    t.string "last_name"
     t.string "first_name"
     t.string "last_name_kana"
     t.string "first_name_kana"
