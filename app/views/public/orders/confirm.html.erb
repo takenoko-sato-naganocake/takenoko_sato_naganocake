@@ -77,19 +77,22 @@
         <%= f.hidden_field :customer_id, value: current_customer.id %>
         <%= f.hidden_field :postage, value: 800 %>
         <%= f.hidden_field :billing, value: @billing %>
-        <% if params[:order][:delivery_address] == "0" %>
-          <%= f.hidden_field :shipping_name, value: current_customer.last_name + current_customer.first_name %>
-          <%= f.hidden_field :shipping_address, value: current_customer.address %>
-          <%= f.hidden_field :shipping_post_cord, value: current_customer.post_cord %>
-        <% elsif params[:order][:delivery_address] == "1" %>
-          <%= f.hidden_field :shipping_name, value: @customer_address.name %>
-          <%= f.hidden_field :shipping_name, value: @customer_address.address %>
-          <%= f.hidden_field :shipping_name, value: @customer_address.post_cord %>
-        <% elsif params[:order][:delivery_address] == "2" %>
-          <%= f.hidden_field :shipping_name, value: @order.name %>
-          <%= f.hidden_field :shipping_name, value: @order.address %>
-          <%= f.hidden_field :shipping_name, value: @order.post_cord %>
-        <% end %>
+        <%= f.hidden_field :shipping_name, value: @shipping_name %>
+        <%= f.hidden_field :shipping_address, value: @shipping_address %>
+        <%= f.hidden_field :shipping_post_cord, value: @shipping_post_cord %>
+        <!--<=% if params[:order][:delivery_address] == "0" %>-->
+        <!--  <=%= f.hidden_field :shipping_name, value: current_customer.last_name + current_customer.first_name %>-->
+        <!--  <=%= f.hidden_field :shipping_address, value: current_customer.address %>-->
+        <!--  <=%= f.hidden_field :shipping_post_cord, value: current_customer.post_cord %>-->
+        <!--<=% elsif params[:order][:delivery_address] == "1" %>-->
+        <!--  <=%= f.hidden_field :shipping_name, value: @customer_address.pluck(:name) %>-->
+        <!--  <=%= f.hidden_field :shipping_address, value: @customer_address.pluck(:address) %>-->
+        <!--  <=%= f.hidden_field :shipping_post_cord, value: @customer_address.pluck(:post_cord) %>-->
+        <!--<=% elsif params[:order][:delivery_address] == "2" %>-->
+        <!--  <=%= f.hidden_field :shipping_name, value: @order.shipping_name %>-->
+        <!--  <=%= f.hidden_field :shipping_address, value: @order.shipping_address %>-->
+        <!--  <=%= f.hidden_field :shipping_post_cord, value: @order.shipping_post_cord %>-->
+        <!--<=% end %>-->
         <div class="text-center mt-5">
         <%= f.submit "注文を確定する", class: "btn" ,style: "background-color: #cbb05e; color: black;" %>
         </div>

@@ -11,7 +11,7 @@ class Public::OrdersController < ApplicationController
     @order.postage = 800 #送料を設定する
     @cart_products = current_customer.cart_products #自分のカート内商品を取り出す
     @billing = @order.postage + @cart_products.products_of_price #請求額の合計を割り出す
-    @customer_address = Shipping.where(customer_id: current_customer.id) #自分が現在登録している住所を取り出す
+    @customer_address = Shipping.find(params[:order][:shipping_id]) #自分が現在登録している住所を取り出す
 
     if params[:order][:delivery_address] == "0" #お届けの方法が自分の住所の時
       @shipping_name = current_customer.last_name + current_customer.first_name
