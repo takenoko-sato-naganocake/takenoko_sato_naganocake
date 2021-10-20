@@ -7,7 +7,9 @@
 <table class="orders_detail">
     <tr>
         <th>購入者</th>
-        <td><%= @order.customer.name %></td>
+        <td><%= link_to admin_customer_path(@order) do %>
+            <% @order.customer.name %>
+            <% end %></td>
     </tr>
     <tr>
         <th>注文日</th>
@@ -19,7 +21,7 @@
 　　</tr>
 　　<tr>
 　　    <th></th>
-　　    <td><%= @order.shipping_name %></td>
+　　    <td><%= @order.shipping_name %> 様</td>
 　　</tr>
 　　<tr>
 　　    <th>支払方法</th>
@@ -31,7 +33,7 @@
 　　<tr>
 　　    <th>注文ステータス</th>
 　　    <td>
-　　     <%= form_with model: order, url: admin_order_path, method: :patch, local: true do |f| %>
+　　     <%= form_with model: [:admin, @order], method: :patch, local: true do |f| %>
 　　     <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]}%>
          <%= f.submit "更新", class: "btn",style: "background-color: #333333; color: white;" %>
          <% end %></td>
@@ -53,32 +55,32 @@
          </thead>
          <% @order.order_details.each do |order_detail| %>
          <tbody>
-             <td><%= @product.order_detail.name %></td>
-             <td><%= orders_detail.price %></td>
-             <td><%= orders_detail.quantity %></td>
+             <td><%= order_detail.product.name %></td>
+             <td><%= order_detail.price %></td>
+             <td><%= order_detail.quantity %></td>
              <td><% @total = order_detail_price * order_detail.quantity.to_i %>
                   ¥<%= @total.floor.to_s(:delimited) %></td>
          <% end %>
-             <td><%= form_with model: order_detail, url: admin_order_path, method: :patch, local: true do |f| %>
-　　     <%= f.select :production_status, Order_detail.production_statuses.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]}%>
-         <%= f.submit "更新", class: "btn",style: "background-color: #333333; color: white;" %>
-         <% end %></td>
-             <td></td>
+             <td><%= form_with model: [:admin, @order_detail], method: :patch, local: true do |f| %>
+　　             <%= f.select :production_status, OrderDetail.production_statuses.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]}%>
+                 <%= f.submit "更新", class: "btn",style: "background-color: #333333; color: white;" %>
+                 <% end %>
+             </td>
          </tbody>
      </table>
      <div class="ofset-md-1 col-md-3">
          <table>
              <tr>
                  <th>商品合計</th>
-                 <td></td>
+                 <td><%= @order.billing - @order.postage %></td>
              </tr>
              <tr>
                  <th>送料</th>
-                 <td>800円</td>
+                 <td><%= @order.postage %></td>
              </tr>
              <tr>
                  <th>請求金額合計</th>
-                 <td></td>
+                 <td><%= @total.billing %></td>
              </tr>
          </table>
          

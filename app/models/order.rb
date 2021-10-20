@@ -3,6 +3,7 @@ class Order < ApplicationRecord
     enum status: { waiting_payment: 0, payment_confirm: 1, in_production: 2, ready_to_ship: 3, shipped: 4 }
   belongs_to :customer
   has_many :order_product, dependent: :destroy
+  has_many :order_detail, dependent: :destroy
   
   enum payment: { クレジットカード: 0, 銀行振込: 1 }
 end

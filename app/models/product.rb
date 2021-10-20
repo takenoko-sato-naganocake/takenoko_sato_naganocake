@@ -4,7 +4,7 @@ class Product < ApplicationRecord
 
   belongs_to :genre
   has_many :cart_products, dependent: :destroy
-  has_many :order_details
+  has_many :order_details, dependent: :destroy
 
   validates :image, presence: true
   validates :name, presence: true

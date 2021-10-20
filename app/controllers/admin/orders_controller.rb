@@ -1,7 +1,6 @@
 class Admin::OrdersController < ApplicationController
     def index
-      @customer = Cutomer.find(params[:id])
-      @orders = @customer.orders
+      @orders = Order.page(params[:page]).reverse_order
     end
 
     def show
@@ -10,6 +9,9 @@ class Admin::OrdersController < ApplicationController
     
     def update
       @order = Order.find(params[:id])
+      @order.update(order_params)
+      redirect_to admin_order_path
+      
     end
     
     private
