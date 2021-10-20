@@ -3,7 +3,7 @@
       order_detail:
         production_status:
           not_startable: "着手不可"
-          waiting_for_production: "製作待ち"
+          waiting_production: "製作待ち"
           in_production: "製作中"
           production_complete: "製作完了"
 
@@ -11,7 +11,7 @@
     enums:
       order:
         status:
-          waiting_for_payment: "入金待ち"
+          waiting_payment: "入金待ち"
           payment_confirm: "入金確認"
           in_production: "製作中"
           ready_to_ship: "発送準備中"
