@@ -17,7 +17,7 @@ class Public::OrdersController < ApplicationController
       @shipping_post_cord = current_customer.post_cord
       @shipping_address = current_customer.address
     elsif params[:order][:delivery_address] == "1" #お届けの方法が登録している住所の時
-      @customer_address = Shipping.find(params[:order][:shipping_id]) 
+      @customer_address = Shipping.find(params[:order][:shipping_id])
       @shipping_name = @customer_address.name
       @shipping_post_cord = @customer_address.post_cord
       @shipping_address = @customer_address.address
@@ -30,17 +30,21 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.save
-    @cart_products = current_customer.cart_products.all
-    @cart_products.each do |cart_item|
-      @order_details = @order.order_details.new
-      @order_details.product_id = cart_item.product.id
-      @order_details.price = cart_item.product.price * 1.1
-      @order_details.quantity = cart_item.quantity
-      @order_details.save
-      current_customer.cart_products.destroy_all
+    if @order.save
+      @cart_products = current_customer.cart_products.all
+      @cart_products.each do |cart_item|
+        @order_details = @order.order_details.new
+        @order_details.product_id = cart_item.product.id
+        @order_details.price = cart_item.product.price * 1.1
+        @order_details.quantity = cart_item.quantity
+        @order_details.save
+        current_customer.cart_products.destroy_all
+      end
+      redirect_to complete_orders_path
+    else
+      @shippings = current_customer.shippings
+      render :new
     end
-    redirect_to complete_orders_path
   end
 
   def complete
