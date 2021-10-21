@@ -45,7 +45,7 @@
               <tr>
                 <th>商品合計</th>
                 <td>
-                  ¥<%= (@order.postage + @order.billing).floor.to_s(:delimited) %>
+                  ¥<%= (@order.billing - @order.postage).floor.to_s(:delimited) %>
                 </td>
               </tr>
               <tr>
