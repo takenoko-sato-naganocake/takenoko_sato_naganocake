@@ -45,6 +45,6 @@
               <td><%= f.text_field :email %></td>
             </tr>
 
-             <%= f.submit '編集内容を保存',class:"btn btn-success" %>
+             <%= f.submit '編集内容を保存',class:"btn", style: "background-color: #cbb05e; color: black;" %>
              <% end %>
-             <%= link_to '退会する',unsubsclibe_path,class:"btn btn-danger" %>
+             <div class="text-right"><%= link_to '退会する',unsubsclibe_path,class:"btn btn-danger" %></div>
