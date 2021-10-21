@@ -1,0 +1,4 @@
+ja:
+  activerecord:
+    models:
+      customer: 会員情報

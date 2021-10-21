@@ -1,5 +1,6 @@
 <div class="container" style="margin-bottom:500px;">
   <div class="row">
+    <span class="notice"><%= notice %></span>
     <div class="col">
       <h4>ショッピングカート</h4>
       　<!--もしカートに自分の淹れた商品が存在したら-->
@@ -70,7 +71,7 @@
           </table>
 
           <div>
-            <%= link_to "買い物を続ける", products_path, class: "btn mt-5", style: "background-color: #6599cc; color: white;"  %>
+            <%= link_to "買い物を続ける", root_path, class: "btn mt-5", style: "background-color: #6599cc; color: white;"  %>
           </div>
 
           <div class="text-center">

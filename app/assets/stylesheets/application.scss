@@ -32,9 +32,7 @@
  .login-page{
   height: 650px;
  }
- .sign-up-page{
-  height: 800px;
- }
+ 
  main{
   font-family: 'Noto Sans JP',serif;
  }
@@ -51,6 +49,9 @@
  }
 
 .validates {
+ color: red;
+}
+#error_explanation{
  color: red;
 }
 
