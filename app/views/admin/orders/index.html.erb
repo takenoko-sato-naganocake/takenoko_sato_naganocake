@@ -4,7 +4,7 @@
   </div>
 
   <div class="row">
-      <div class="offset-md-1 col-md-10 offset-md-1">
+      <div class="offset-md-1 col-md-auto">
 
     <table class="table">
       <thead>
@@ -24,7 +24,7 @@
             <% end %></td>
         <td><%= order.customer.last_name %><%= order.customer.first_name %>
         </td>
-        <td><%#= order.quantity %></td>
+        <td><%= order.order_details.sum(:quantity) %></td>
         <td><%= order.status_i18n %></td>
         </tr>
         <% end %>

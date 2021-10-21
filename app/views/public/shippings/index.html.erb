@@ -9,32 +9,35 @@
 
 
 
-<div class="container">
-  <div class="row"> 
-  　  <div class="col-sm-1"></div>
-    <div class="form-group">
-     <h4 class="mt-5 bg-light">配送先登録／一覧</h4>
+<div class="container my-5" style="height: 650px;">
+
+  <div class="row">
+    <div class="offset-1 text-center">
+      <h3 class="text title-text">配送先登録／一覧</h3>
     </div>
   </div>
   
-
+  <div class="row">
+    <div class="offset-1 col-md-10 ofset-1">
   <%= form_with model: @shipping, url: shippings_path, local:true do |f| %>
     <table class="form-group">
       <tr><th>郵便番号(ハイフンなし)</th>
-        <td><%= f.text_field :post_cord, placeholder: "0000000", class:"form-control" %></td>
+        <td><%= f.text_field :post_cord, placeholder: "0000000" %></td>
       </tr>
 
       <tr><th>住所</th>
-        <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class:"form-control" %></td>
+        <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", size: "50" %></td>
       </tr>
   
       <tr><th>宛名</th>
-      　<td><%= f.text_field :name, placeholder: "令和道子", class:"form-control" %>
-      　<%= f.submit '新規登録', class:'btn btn-success'  %></td>
-      </tr>
+      　<td><%= f.text_field :name, placeholder: "令和道子" %>　様</td></tr>
+      <tr><th></th>
+      <td><div class="text-right"><%= f.submit '新規登録', class: "btn", style: "background-color: #cbb05e; color: black;"  %></div></td></tr>
+      
      <% end %>
     </table>
-    
+    </div>
+    </div>
     
 <div class="row">
 <table class="table table-striped">
@@ -44,6 +47,7 @@
       <th scope="col">住　所</th>
       <th scope="col">宛　名</th>
       <th scope="col"></th>
+      <th></th>
     </tr>
   </thead>
   <% @shippings.each do |s| %>
@@ -51,8 +55,8 @@
     <td><%= s.post_cord %></td>
     <td><%= s.address %></td>
     <td><%= s.name %></td>
-    <td><%= link_to "編集する" , "/shippings/#{s.id}/edit", class:"btn btn-success btn-sm" %>
-    <%= link_to "削除する", "/shippings/#{s.id}", method: :delete, class:"btn btn-danger btn-sm","data-confirm" => "本当に削除しますか?" %></td>
+    <td><%= link_to "編集する" , "/shippings/#{s.id}/edit", class: "btn btn-sm", style: "background-color: #cbb05e; color: black;" %></td>
+    <td><%= link_to "削除する", "/shippings/#{s.id}", method: :delete, class:"btn btn-dark btn-sm","data-confirm" => "本当に削除しますか?" %></td>
   </tbody>
   <% end %>
 </table>
