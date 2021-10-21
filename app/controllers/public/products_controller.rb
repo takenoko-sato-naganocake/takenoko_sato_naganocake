@@ -9,7 +9,7 @@ class Public::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @cart_products = CartProduct.new
+    @cart_product = CartProduct.new
   end
 
 
