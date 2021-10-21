@@ -10,8 +10,8 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :caption, presence: true
   validates :genre_id, presence: true
-  validates :price, presence: true
-  
+  validates :price, presence: true, numericality: {only_integer: true}
+
   def taxin_price
     price * 1.1
   end

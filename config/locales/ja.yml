@@ -16,9 +16,25 @@
 
     activerecord:
       errors:
-          messages:
-              image: "商品画像"
-              name: "商品名"
-              caption: "商品説明"
-              price: "税抜価格"
-              blank: "が入力されていません。"
+        messages:
+          blank: "が入力されていません。"
+          invalid: "が入力されていません。"
+          not_a_number: "は半角数字のみで入力してください。"
+
+      attributes:
+        product:
+          image: "商品画像"
+          name: "商品名"
+          caption: "商品説明"
+          genre: "ジャンル"
+          price: "税抜価格"
+
+        customer:
+          last_name: "氏名（姓）"
+          first_name: "氏名（名）"
+          last_name_kana: "フリガナ（姓）"
+          first_name_kana: "フリガナ（名）"
+          post_cord: "郵便番号"
+          address: "住所"
+          phone_number: "電話番号"
+          email: "メールアドレス"

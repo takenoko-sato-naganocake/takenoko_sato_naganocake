@@ -1,5 +1,5 @@
 class Admin::OrdersDetailsController < ApplicationController
-    
+
     def update
         @order_ditail = OrderDetail.find(params[:id])
         if @order_detail.update(order_detail_params)
@@ -8,9 +8,9 @@ class Admin::OrdersDetailsController < ApplicationController
             render :show, alert: "製作ステータスを更新できませんでした"
         end
     end
-    
+
     private
     def order_detail_params
-       params.require(:order_detail).permit(:product_id, :order_id, :quantity, :price, :production_status) 
+       params.require(:order_detail).permit(:product_id, :order_id, :quantity, :price, :production_status)
     end
 end

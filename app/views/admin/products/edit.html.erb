@@ -2,14 +2,16 @@
     <h2>商品編集</h2>
 
     <div class="product-edit">
-        <% if @product.errors.any? %>
-            <%= @product.errors.count %>errors prohibited this obj from being saved:
-            <% @product.errors.full_messages.each do |message| %><br>
-                ・<%= message %>
-            <% end %>
-        <% end %>
+        <div class="validates">
+          <% if @product.errors.any? %>
+              <%= @product.errors.count %> 件の入力ミスがあります。
+              <% @product.errors.full_messages.each do |message| %><br>
+                  ・<%= message %>
+              <% end %>
+          <% end %>
+        </div>
 
-        <%= form_for(@product, url: admin_product_path) do |f| %>
+        <%= form_with model:@product, url: admin_product_path, local:true do |f| %>
             <dl>
 
                 <div class="edit-form-group">
