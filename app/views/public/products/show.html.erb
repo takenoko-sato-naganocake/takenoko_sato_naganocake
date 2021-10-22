@@ -48,7 +48,7 @@
 		      			<%= f.number_field :quantity, min: 1, max: 100, placeholder: '個数選択', class:"quantity-select-form" %>
 		      			<%= f.hidden_field :product_id, :value => @product.id %>
 		      			<%= f.hidden_field :customer_id, :value => current_customer.id %>
-		      			<%= f.submit "カートに入れる", class: "btn btn-sm btn-dark" %>
+		      			<%= f.submit "カートに入れる", class:"btn btn-sm", style: "background-color: #cbb05e; color: black;" %>
 		    		<% end %>
 		    	<% end %>
 			</div>
