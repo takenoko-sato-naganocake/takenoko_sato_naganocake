@@ -1,17 +1,17 @@
 <%= flash[:notice] %>
 
-<div class="container px-5 px-sm-0">
+<div class="container px-5 px-sm-0" style="margin-bottom: 150px;">
   <div class="row">
     <div class="col-md-12">
         <div class="mypage",style="text-align:center">
         <h3 class="title">マイページ</h3>
- 
+
       <table class="update">
         <tr><th><h5><strong>登録情報</strong></h5></th>
           <td><%= link_to "編集する", edit_customers_path, class: "btn btn-sm btn-dark" %></td>
         </tr>
       </table>
-      
+
       <table class="customer_info">
         <tr>
           <th>氏名</th>
@@ -38,15 +38,15 @@
           <td><%= @customer.email %></td>
         </tr>
       </table>
-  
-    
+
+
        <!--配送先・注文履歴リンク-->
        <table class="links">
          <tr>
         <th><h5><strong>配送先</strong></h5></th>
            <td><%= link_to "一覧を見る", shippings_path, class:"btn btn-sm", style: "background-color: #cbb05e; color: black;"%></td>
          </tr>
-       
+
           <tr><th><h5><strong>注文履歴</strong></h5></th>
           <td><%= link_to "一覧を見る", orders_path, class:"btn btn-sm", style: "background-color: #cbb05e; color: black;" %></td>
         </tr>
