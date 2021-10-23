@@ -2,14 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#top-img{
+#container{
+  height: 550px;
+}
+
+.image1 {
+  background-image: url(top-img.jpg);
   opacity: 0.9;
-  font-family: 'Noto Sans JP',serif;
-  height:400px;
-  background-image: image-url("top-img.jpg");
   background-size: cover;
-	 background-position: center;
- }
+	background-position: center;
+}
+.image2 {
+  background-image: url(top2.jpg);
+  background-size: cover;
+	background-position: center;
+}
+.image3 {
+  background-image: url(top3.jpg);
+  background-size: cover;
+	background-position: center;
+}
+.image4 {
+  background-image: url(top4.jpg);
+  background-size: cover;
+	background-position: center;
+}
+.image5 {
+  background-image: url(top5.jpg);
+  background-size: cover;
+	background-position: center;
+}
+
+
+
  .under-line{
   border-bottom: solid 2px #cbb05e;;
  }
