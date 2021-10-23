@@ -1,0 +1,21 @@
+
+      <table class="table table-bordered genre_box">
+        <thead class="borderless">
+          <tr>
+            <th class="text-center ribbon"><p>ジャンル検索</p></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% genres.each do |genre| %>
+            <tr>
+              <td class="genre-content p-0">
+                <p>
+                    <%= genre.name %>
+                </p>
+
+
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
