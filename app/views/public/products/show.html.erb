@@ -2,25 +2,7 @@
 <span class="alert"><%= notice %></span>
 <div class="row">
 	<div class="col-md-2 text-center">
-        <div class="card">
-            <div class="card-header">
-            	ジャンル検索
-            </div>
-            <ul class="list-group list-group-flush">
-            	<li class="list-group-item">
-                    <%= link_to "ケーキ", root_path, class: "text-secondary" %>
-                </li>
-                <li class="list-group-item">
-                    <%= link_to "焼き菓子", root_path, class: "text-secondary" %>
-                </li>
-                <li class="list-group-item">
-                    <%= link_to "プリン", root_path, class: "text-secondary" %>
-                </li>
-                <li class="list-group-item">
-                    <%= link_to "キャンディ", root_path, class: "text-secondary" %>
-                </li>
-            </ul>
-        </div>
+        <%= render 'genres_search', genres: @genres %>
     </div>
 
 	<div class="col-md-5">
