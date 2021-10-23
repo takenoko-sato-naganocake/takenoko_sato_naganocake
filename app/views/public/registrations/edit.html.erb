@@ -1,42 +1,53 @@
 <div class="container px-5 px-sm-0">
-  <div class="row">
-    <div class="col-md-12">
-    
-          <h3 class="title">会員情報編集</h3>
-            
-              <%= form_with model:@customer, url: customers_path(@customer), local:true do |f| %>
-             <table class="update">
-             <tr><th>氏名</th>
-               <td><%= f.text_field :last_name %>  <%= f.text_field :first_name %></td> 
-             </tr>
-            
-            <tr><th>フリガナ</th>
+
+  <h3 class="title">会員情報編集</h3>
+
+    <%= form_with model:@customer, url: customers_path(@customer), local:true do |f| %>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="update">
+
+            <tr>
+              <th>氏名</th>
+              <td><%= f.text_field :last_name %>  <%= f.text_field :first_name %></td>
+            </tr>
+
+            <tr>
+              <th>フリガナ</th>
               <td><%= f.text_field :last_name_kana %>  <%= f.text_field :first_name_kana %></td>
             </tr>
-            
-            <tr><th>郵便番号</th>
+
+            <tr>
+              <th>郵便番号</th>
               <td><%= f.text_field :post_cord %></td>
-            </tr> 
-           
-            <tr><th>住所</th>
+            </tr>
+
+            <tr>
+              <th>住所</th>
               <td><%= f.text_field :address, :size=>"60" %></td>
             </td>
-         
-            <tr><th>電話番号</th>
+
+            <tr>
+              <th>電話番号</th>
               <td><%= f.text_field :phone_number %></td>
             </tr>
-        
-            <tr><th>メールアドレス</h2>
+
+            <tr>
+              <th>メールアドレス</th>
               <td><%= f.text_field :email %></td>
             </tr>
-            </table>
-          </div>
+
+          </table>
         </div>
-        <div class="row">
-          <div class="col-6"></div>
-          <div class="col-2"><%= f.submit '編集内容を保存',class:"btn", style: "background-color: #cbb05e; color: black;" %></div>
-          <div class="col-2"></div>
-          <div class="col2" ><%= link_to '退会する',unsubsclibe_customers_path,class: "btn btn-dark text-right" %></div>
-          <% end %>
       </div>
-  </div>
+
+      <div class="row">
+        <div class="col-6"></div>
+        <div class="col-2"><%= f.submit '編集内容を保存',class:"btn", style: "background-color: #cbb05e; color: black;" %></div>
+        <div class="col-2"></div>
+        <div class="col2" ><%= link_to '退会する',unsubsclibe_customers_path,class: "btn btn-dark text-right" %></div>
+      </div>
+
+    <% end %>
+
+</div>
