@@ -16,9 +16,9 @@
       <nav class="navbar navbar-expand-lg " id="navbarHeader">
         <div class="container">
             <a class="navbar-brand" href="/"><span style="color: white;font-size:30px;">ながのCAKE</span></a>
-            <% if customer_signed_in? %>
-              <span style="color: white;">ようこそ、<%= current_customer.last_name %>さん</span>
-            <% end %>
+            <!--<=% if customer_signed_in? %>-->
+            <!--  <span style="color: white;">ようこそ、<=%= current_customer.last_name %>さん</span>-->
+            <!--<=% end %>-->
 
           <div class="navbar navbar-dark shadow-sm">
             <div class="container d-flex justify-content-between">
@@ -58,6 +58,7 @@
                 <% end %>
               </li>
             <% elsif customer_signed_in? %>
+              <span class="mt-2" style="color: white;">ようこそ、<%= current_customer.last_name %>さん</span>
               <li class="nav-item">
                 <%= link_to customers_path, class: 'nav-link text-light  ml-2' do %>
                 マイページ

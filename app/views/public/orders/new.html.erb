@@ -1,6 +1,15 @@
 <div class="container" style="margin-bottom: 400px;">
   <div class="row">
     <div class="col">
+      
+        <div class="validates mb-5">
+          <% if @order.errors.any? %>
+              　-<%= @order.errors.count %>箇所の入力漏れがあります-
+              <% @order.errors.full_messages.each do |message| %><br>
+              ・<%= message %>
+            <% end %>
+          <% end %>
+        </div>
 
 
       <h2>注文情報入力</h2>

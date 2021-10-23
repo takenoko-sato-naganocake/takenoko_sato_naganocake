@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
+  <div class="row mb-5">
+    <div class="col mb-3">
       <h3>注文履歴詳細</h3>
 
       <div class="row">
@@ -45,7 +45,7 @@
               <tr>
                 <th>商品合計</th>
                 <td>
-                  ¥<%= (@order.postage + @order.billing).floor.to_s(:delimited) %>
+                  ¥<%= (@order.billing - @order.postage).floor.to_s(:delimited) %>
                 </td>
               </tr>
               <tr>
@@ -65,7 +65,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row mb-5">
         <p>注文内容</p>
         <table class="table table-bordered">
             <tbody>

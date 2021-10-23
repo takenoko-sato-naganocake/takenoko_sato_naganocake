@@ -7,25 +7,32 @@ class Public::CartProductsController < ApplicationController
 
   def create
     @cart_product = CartProduct.new(cart_product_params)
-    @cart_product.save
-    redirect_to cart_products_path
+    @product = @cart_product.product
+    if @cart_product.save
+      redirect_to cart_products_path, notice: "カートに商品が入りました"
+    else
+      redirect_to product_path(@product), notice: "商品の個数を指定してください"
+    end
   end
 
   def update
     @cart_product = CartProduct.find(params[:id])
-    @cart_product.update(cart_product_params)
-    redirect_to cart_products_path
+    if @cart_product.update(cart_product_params)
+      redirect_to cart_products_path, notice: "個数の変更が完了しました"
+    end
   end
 
   def destroy
     @cart_product = CartProduct.find(params[:id])
-    @cart_product.destroy
-    redirect_to cart_products_path
+    if @cart_product.destroy
+      redirect_to cart_products_path, notice: "商品の削除に成功しました"
+    end
   end
 
   def destroy_all
-    CartProduct.destroy_all
-    redirect_to cart_products_path
+    if CartProduct.destroy_all
+      redirect_to cart_products_path, notice: "カート内を全て削除しました"
+    end
   end
 
   private

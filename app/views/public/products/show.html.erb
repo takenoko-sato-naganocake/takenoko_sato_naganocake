@@ -1,6 +1,6 @@
 <div class="container mt-5 mb-5">
+<span class="alert"><%= notice %></span>
 <div class="row">
-
 	<div class="col-md-2 text-center">
         <div class="card">
             <div class="card-header">
@@ -43,7 +43,7 @@
 		<% if customer_signed_in? %>
 			<div class="row">
 				<% if @product.is_active == true %>
-					<%= form_with(model: @cart_products,method: :post, local: true) do |f| %>
+					<%= form_with(model: @cart_product,method: :post, local: true) do |f| %>
 		      			<%= f.label :quantity, "個数選択" %>
 		      			<%= f.number_field :quantity, min: 1, max: 100, placeholder: '個数選択', class:"quantity-select-form" %>
 		      			<%= f.hidden_field :product_id, :value => @product.id %>

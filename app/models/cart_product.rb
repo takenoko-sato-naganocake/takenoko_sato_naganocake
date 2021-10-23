@@ -6,6 +6,7 @@ class CartProduct < ApplicationRecord
   def sum_of_price
     product.taxin_price * quantity
   end
+  validates :quantity, presence: true
   
   scope :products_of_price, -> { inject(0){ |sum, product| sum + product.sum_of_price } }
   
