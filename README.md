@@ -5,7 +5,7 @@
 </p>
 
 長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発。
- 
+
 # 案件の背景
  
 元々近隣住民が顧客だったが、昨年始めたInstagramから人気となり、全国から注文が来るよう
@@ -50,7 +50,12 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 # 実装機能
 機能一覧<br>
 https://wals.s3-ap-northeast-1.amazonaws.com/curriculum/ec_site/design_documents/ecsite_functions_list.pdf
- 
+
+# 設計図
+- ER図は[こちら](https://github.com/takenoko-sato-naganocake/takenoko_sato_naganocake/files/7414704/DWCCOMMIT_._ER._.pdf)
+- テーブル定義書は[こちら](https://github.com/takenoko-sato-naganocake/takenoko_sato_naganocake/files/7414746/DWCCOMMIT_._._.pdf)
+- 詳細設計書は[こちら](https://github.com/takenoko-sato-naganocake/takenoko_sato_naganocake/files/7414756/DWCCOMMIT_._._.pdf)
+
 # 作成者
 Team たけのこの里
 - うっちー
