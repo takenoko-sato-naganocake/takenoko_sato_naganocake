@@ -48,7 +48,7 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 </p>
  
 # 実装機能
-機能一覧は[こちら]（https://wals.s3-ap-northeast-1.amazonaws.com/curriculum/ec_site/design_documents/ecsite_functions_list.pdf）
+- 機能一覧は[こちら](https://wals.s3-ap-northeast-1.amazonaws.com/curriculum/ec_site/design_documents/ecsite_functions_list.pdf)
 
 # 設計図
 - ER図は[こちら](https://github.com/takenoko-sato-naganocake/takenoko_sato_naganocake/files/7414704/DWCCOMMIT_._ER._.pdf)
