@@ -6,7 +6,6 @@
 
 　長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発。
 
-
 # 案件の背景
  
 　元々近隣住民が顧客だったが、昨年始めたInstagramから人気となり、全国から注文が来るよう
@@ -28,13 +27,11 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
   <img src="https://user-images.githubusercontent.com/89368225/138636434-df81d8d2-301b-4d66-8830-8a27ad2befb6.png" />
 </p>
 
- 
 # 各種ステータス
 　注文〜発送まで、下記のステータスで注文及び注文内容を管理する。
 <p align="center">
   <img src="https://user-images.githubusercontent.com/89368225/138636231-078e337c-6e97-4ca4-90df-70caee44aca0.png" />
 </p>
-
 
 # 会員側のフロー
  
